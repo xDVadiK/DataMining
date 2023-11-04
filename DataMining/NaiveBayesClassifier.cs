@@ -6,8 +6,8 @@ namespace DataMining
 {
     internal class NaiveBayesClassifier
     {
-        private Dictionary<int, Dictionary<int, Dictionary<int, double>>> likelihoods; // Условные вероятности
-        private Dictionary<int, double> classProbabilities; // Априорные вероятности
+        private Dictionary<int, Dictionary<int, Dictionary<int, double>>> likelihoods; // Conditional probabilities
+        private Dictionary<int, double> classProbabilities; // Priori probabilities
 
         public NaiveBayesClassifier()
         {
@@ -15,7 +15,7 @@ namespace DataMining
             classProbabilities = new Dictionary<int, double>();
         }
 
-        // Тренировка модели
+        // Model training
         public void Train(List<TitanicDataInput> trainingData, List<TitanicDataOutput> labels)
         {
             int numSamples = trainingData.Count;
@@ -49,7 +49,7 @@ namespace DataMining
             }
         }
 
-        // Прогнозирование исхода для тестовой выборки
+        // Predicting the outcome for the test sample
         public List<TitanicDataOutput> Predict(List<TitanicDataInput> data)
         {
             List<TitanicDataOutput> titanicSurvivedPredicrions = new List<TitanicDataOutput>();
@@ -86,7 +86,7 @@ namespace DataMining
             return titanicSurvivedPredicrions;
         }
 
-        // Получение значения параметра
+        // Obtaining the value of the parameter
         private static int GetFeatureValue(TitanicDataInput data, int featureIndex)
         {
             switch (featureIndex) 

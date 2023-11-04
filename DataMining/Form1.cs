@@ -81,10 +81,10 @@ namespace DataMining
             }
         }
 
-        // Чтение информации о пассажирах из файла
+        // Reading passenger information from a file
         private List<TitanicData> ReadTitanicDataFromCSV(string filePath, string type)
         {
-            List<TitanicData> records = new List<TitanicData>(); // Создаём список пассажиров
+            List<TitanicData> records = new List<TitanicData>(); // Create a passenger list
 
             using (StreamReader reader = new StreamReader(filePath))
             {
@@ -174,7 +174,7 @@ namespace DataMining
             }
         }
 
-        // Замена значений null средними значениями
+        // Replacing null values with mean values
         private List<TitanicData> ReplaceNulls(List<TitanicData> titanicDatas)
         {
             float? averageAge = titanicDatas
@@ -201,7 +201,7 @@ namespace DataMining
             return titanicDatas;
         }
 
-        // Создание набора данных подающихся на вход модели
+        // Creating a set of data fed to the model input
         private List<TitanicDataInput> SelectInput(List<TitanicData> records)
         {
             return records
@@ -216,7 +216,7 @@ namespace DataMining
             .ToList();
         }
 
-        // Создание набора данных, содержащего размеченную информацию
+        // Creating a dataset containing labelled information
         private List<TitanicDataOutput> SelectOutput(List<TitanicData> records)
         {
             return records
@@ -228,7 +228,7 @@ namespace DataMining
             .ToList();
         }
 
-        // Чтение информации для проверки прогнозирования модели
+        // Reading information to validate model predictions
         private List<TitanicDataOutput> ReadSubmissionFromCSV(string filePath)
         {
             List<TitanicDataOutput> records = new List<TitanicDataOutput>();
@@ -257,7 +257,7 @@ namespace DataMining
             }
         }
 
-        // Вычмсление точности прогнозирования модели
+        // Calculating the prediction accuracy of the model
         private double CalculateAccuracy(List<TitanicDataOutput> prediction, List<TitanicDataOutput> submission)
         {
             double accuracy = 0;
